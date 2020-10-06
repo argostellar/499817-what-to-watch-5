@@ -334,9 +334,12 @@ const MainPage = ({filmInfo}) => {
 };
 
 MainPage.propTypes = {
-  name: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  releaseDate: PropTypes.number.isRequired,
+  filmInfo: PropTypes.exact(
+      {
+        name: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        releaseDate: PropTypes.number.isRequired,
+      })
 };
 
 
