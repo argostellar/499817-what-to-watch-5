@@ -10,12 +10,12 @@ import AddReviewPage from "../add-review-page/add-review-page";
 import PlayerPage from "../player-page/player-page";
 
 
-const App = ({filmInfo}) => {
+const App = ({films, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainPage filmInfo={filmInfo} />
+          <MainPage films={films} />
         </Route>
         <Route exact path="/login">
           <SignInPage />
@@ -24,7 +24,7 @@ const App = ({filmInfo}) => {
           <MyListPage />
         </Route>
         <Route exact path="/films/:id">
-          <FilmPage />
+          <FilmPage film={films[0]} reviews={reviews} />
         </Route>
         <Route exact path="/films/:id/review">
           <AddReviewPage />
@@ -39,6 +39,8 @@ const App = ({filmInfo}) => {
 
 App.propTypes = {
   filmInfo: PropTypes.object.isRequired,
+  films: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 export default App;
